@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.animation.LinearInterpolator;
 
 import com.jordanmadrigal.notesapp.adapters.NotesAdapter;
@@ -13,8 +14,9 @@ import com.jordanmadrigal.notesapp.models.Note;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotesListActivity extends AppCompatActivity {
+public class NotesListActivity extends AppCompatActivity implements NotesAdapter.OnNoteListener {
 
+    private static final String TAG = "NotesListActivity";
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<Note> notes = new ArrayList<>();
@@ -35,7 +37,7 @@ public class NotesListActivity extends AppCompatActivity {
     private void initRecyclerView(){
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new NotesAdapter(notes);
+        adapter = new NotesAdapter(notes, this);
         recyclerView.setAdapter(adapter);
 
         testData();
@@ -50,5 +52,10 @@ public class NotesListActivity extends AppCompatActivity {
         }
 
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onNoteClick(int position) {
+        Log.d(TAG, "onNoteClick: " + position);
     }
 }
