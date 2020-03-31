@@ -7,10 +7,10 @@
     android:background="@color/lightYellow"
     android:layout_margin="4dp">
 
-    <view
+    <View
         android:id="@+id/view"
-        android:layout_width="2dp"
-        android:layout_height="match_parent"
+        android:layout_width="4dp"
+        android:layout_height="60dp"
         android:background="@color/mediumYellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/note_title"
