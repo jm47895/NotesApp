@@ -15,6 +15,8 @@ import com.jordanmadrigal.notesapp.models.Note;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.jordanmadrigal.notesapp.utils.Constants.NOTE_CONTENT_KEY;
+
 public class NotesListActivity extends AppCompatActivity implements NotesAdapter.OnNoteListener {
 
     private static final String TAG = "NotesListActivity";
@@ -59,6 +61,7 @@ public class NotesListActivity extends AppCompatActivity implements NotesAdapter
     public void onNoteClick(int position) {
         Log.d(TAG, "onNoteClick: " + position);
         Intent intent = new Intent(this, NoteActivity.class);
+        intent.putExtra(NOTE_CONTENT_KEY, notes.get(position));
         startActivity(intent);
     }
 }
