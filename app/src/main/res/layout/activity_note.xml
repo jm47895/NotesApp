@@ -29,6 +29,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <com.jordanmadrigal.notesapp.utils.LinedEditText
+        android:id="@+id/note_body_edit"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="10dp"

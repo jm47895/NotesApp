@@ -51,6 +51,7 @@ public class NotesListActivity extends AppCompatActivity implements NotesAdapter
             Note note = new Note();
             note.setTitle("This is title " + i);
             note.setTimeStamp("Jan " + i);
+            note.setContent("content");
             notes.add(note);
         }
 
