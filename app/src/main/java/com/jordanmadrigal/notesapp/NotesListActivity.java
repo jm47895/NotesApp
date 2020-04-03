@@ -1,12 +1,14 @@
 package com.jordanmadrigal.notesapp;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.view.animation.LinearInterpolator;
 
 import com.jordanmadrigal.notesapp.adapters.NotesAdapter;
@@ -17,12 +19,13 @@ import java.util.List;
 
 import static com.jordanmadrigal.notesapp.utils.Constants.NOTE_CONTENT_KEY;
 
-public class NotesListActivity extends AppCompatActivity implements NotesAdapter.OnNoteListener {
+public class NotesListActivity extends AppCompatActivity implements NotesAdapter.OnNoteListener, View.OnClickListener {
 
     private static final String TAG = "NotesListActivity";
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<Note> notes = new ArrayList<>();
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class NotesListActivity extends AppCompatActivity implements NotesAdapter
         setContentView(R.layout.activity_notes_list);
 
         recyclerView = findViewById(R.id.notes_recyclerView);
+        findViewById(R.id.fab).setOnClickListener(this);
 
         initRecyclerView();
 
@@ -63,6 +67,12 @@ public class NotesListActivity extends AppCompatActivity implements NotesAdapter
         Log.d(TAG, "onNoteClick: " + position);
         Intent intent = new Intent(this, NoteActivity.class);
         intent.putExtra(NOTE_CONTENT_KEY, notes.get(position));
+        startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(this, NoteActivity.class);
         startActivity(intent);
     }
 }
