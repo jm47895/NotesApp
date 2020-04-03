@@ -102,6 +102,9 @@ public class NoteActivity extends AppCompatActivity implements View.OnTouchListe
             linedEditText.setCursorVisible(true);
             mode = EDIT_MODE_ENABLED;
         }else{
+
+            hideKeyboard();
+
             checkButton.setVisibility(View.GONE);
             editTitle.setVisibility(View.GONE);
 
@@ -111,7 +114,6 @@ public class NoteActivity extends AppCompatActivity implements View.OnTouchListe
             linedEditText.setCursorVisible(false);
             mode = EDIT_MODE_DISABLED;
 
-            hideKeyboard();
         }
     }
 
