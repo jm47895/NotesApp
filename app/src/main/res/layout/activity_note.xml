@@ -37,11 +37,11 @@
         android:textColor="@color/black"
         android:textCursorDrawable="@null"
         android:inputType="textMultiLine"
-        android:background="?attr/selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editNoteBarLayout"
-        android:importantForAutofill="no" />
+        android:importantForAutofill="no"
+        android:imeOptions="flagNoExtractUi"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -22,6 +22,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnTouchListe
     private static final String TAG = "NoteActivity";
     private static final int EDIT_MODE_ENABLED = 1;
     private static final int EDIT_MODE_DISABLED = 0;
+    public static final String MODE_KEY = "mode";
 
     private LinedEditText linedEditText;
     private EditText editTitle;
@@ -147,6 +148,21 @@ public class NoteActivity extends AppCompatActivity implements View.OnTouchListe
             onClick(checkButton);
         }else {
             super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(MODE_KEY, mode);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mode = savedInstanceState.getInt(MODE_KEY);
+        if(mode == EDIT_MODE_ENABLED){
+            setEditModeEnabled(true);
         }
     }
 
