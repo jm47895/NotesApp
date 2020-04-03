@@ -61,6 +61,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnTouchListe
         linedEditText.setOnTouchListener(this);
         textTitle.setOnClickListener(this);
         checkButton.setOnClickListener(this);
+        backButton.setOnClickListener(this);
     }
 
     private void setExistingNoteProperties() {
